@@ -16,3 +16,15 @@ class AdminCleanupTokensHandler(BaseHandler):
             ndb.delete_multi(keys)
 
         self.response.write('looking for tokens <= %s<br>%s tokens deleted <br> <a href=%s>home</a>' % (pastdate,tokensToDelete, self.uri_for('home')))
+
+class CreateGames(BaseHandler):
+    def get(self):
+
+        al = Game.query(Game.numberPlayers == 1)
+
+        while al.count(limit=None) < 10:
+            gspot = Game()
+            gspot.numberPlayers = 1
+            gspot.entryFee = 5.00
+            gspot.usersSignedUp = 0
+            result = gspot.put()

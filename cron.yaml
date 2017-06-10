@@ -2,3 +2,6 @@ cron:
 - description: delete old user tokens
   url: /admin/crontasks/cleanuptokens
   schedule: every monday 01:00
+- description: create games
+  url: /admin/crontasks/creategames
+  schedule: every 1 minutes
