@@ -2,6 +2,7 @@ from google.appengine.ext import ndb
 from bp_includes.lib.basehandler import BaseHandler
 from bp_includes.models import User
 import datetime
+from bp_content/themes/default/handlers/models import Game
 
 
 class AdminCleanupTokensHandler(BaseHandler):
