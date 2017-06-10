@@ -18,7 +18,7 @@ _routes = [
     RedirectRoute('/admin/logout/', admin.AdminLogoutHandler, name='admin-logout', strict_slash=True),
 
     RedirectRoute('/admin/crontasks/cleanuptokens/', crontasks.AdminCleanupTokensHandler, name='admin-crontasks-cleanuptokens', strict_slash=True),
-    RedirectRoute('/admin/crontasks/creategames/', crontasks.CreateGames, name='admin-crontasks-creategames', strict_slash=True),
+    RedirectRoute('/admin/crontasks/creategames', crontasks.CreateGames, name='admin-crontasks-creategames'),
 ]
 
 def get_routes():
