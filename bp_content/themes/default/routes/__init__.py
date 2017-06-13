@@ -23,6 +23,6 @@ def get_routes():
 
 def add_routes(app):
     if app.debug:
-        secure_scheme = 'http'
+        secure_scheme = 'https'
     for r in _routes:
         app.router.add(r)
