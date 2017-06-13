@@ -325,4 +325,6 @@ class GamePageHandler(BaseHandler):
 
         game.usersSignedUp = new
 
+        result = game.put()
+
         self.redirect(url)
