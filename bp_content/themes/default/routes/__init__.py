@@ -15,7 +15,7 @@ _routes = [
     RedirectRoute('/settings/delete_account', handlers.DeleteAccountHandler, name='delete-account', strict_slash=True),
     RedirectRoute('/contact/', handlers.ContactHandler, name='contact', strict_slash=True),
     RedirectRoute('/lobby/', handlers.LobbyHandler, name='lobby', strict_slash=True),
-    RedirectRoute('/g/(.*)', handlers.GamePageHandler, name='game-page', strict_slash=True),
+    RedirectRoute('/g/<:.*>', handlers.GamePageHandler, name='game-page', strict_slash=True),
 ]
 
 def get_routes():
