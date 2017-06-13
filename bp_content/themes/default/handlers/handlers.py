@@ -321,7 +321,10 @@ class GamePageHandler(BaseHandler):
             game = Game()
             game = game.get_by_id(gameID)
 
-            game.usersSignedUp.append({'user': self.user_id})
+            if game.usersSignedUp:
+                game.usersSignedUp.append({'user': self.user_id})
+            else:
+                game.usersSignedUp = [{'user': self.user_id}]
 
             result = game.put()
 
