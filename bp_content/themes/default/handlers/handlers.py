@@ -321,10 +321,7 @@ class GamePageHandler(BaseHandler):
             game = Game()
             game = game.get_by_id(gameID)
 
-            current = game.usersSignedUp
-            new = current + 1
-
-            game.usersSignedUp = new
+            game.usersSignedUp.append({'user': self.user_id})
 
             result = game.put()
 

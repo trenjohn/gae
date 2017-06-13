@@ -6,7 +6,7 @@ class Game(ndb.Model):
     #user = ndb.ReferenceProperty(Account)
     numberPlayers = ndb.IntegerProperty()
     entryFee = ndb.FloatProperty()
-    usersSignedUp = ndb.IntegerProperty()
+    usersSignedUp = ndb.JSONProperty()
     #PrizeStructure (Model w/ variety of types)
     #StartTime
     #Duration
