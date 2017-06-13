@@ -297,7 +297,7 @@ class LobbyHandler(BaseHandler):
 
 class GamePageHandler(BaseHandler):
 
-    def get(self, url):
+    def get(self, url, game_id):
 
         url = self.request.url
         gameID = os.path.basename(os.path.normpath(url))
@@ -311,7 +311,7 @@ class GamePageHandler(BaseHandler):
 
         return self.render_template('game.html', **params)
 
-    def post(self, url):
+    def post(self, url, game_id):
 
         url = self.request.url
         gameID = os.path.basename(os.path.normpath(url))
