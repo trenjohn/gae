@@ -12,7 +12,7 @@
       <span><a href="https://trenjohn-170317.appspot.com/g/{{ game.key.id()|safe }}">{{ game.key.id() }}</a><p> {{game.entryFee}} {{game.numberPlayers}} {{game.usersSignedUp}}</p></span>
   </div>
   <!-- [END greetings] -->
-  <form action="https://trenjohn-170317.appspot.com/g/{{ game.key.id() }}" method="post">
+  <form action="{{ url|safe }}" method="post">
     <!-- <div><textarea name="content" class="input-block-level" rows="3"></textarea></div> -->
     <div><input type="submit" class="btn btn-large btn-primary" value="Join Game"></div>
   </form>
