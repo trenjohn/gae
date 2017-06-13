@@ -313,6 +313,7 @@ class GamePageHandler(BaseHandler):
         return self.render_template('game.html', **params)
 
     def post(self, url):
+        try:
 
             url = self.request.url
             gameID = os.path.basename(os.path.normpath(url))
@@ -327,4 +328,7 @@ class GamePageHandler(BaseHandler):
 
             result = game.put()
 
-            self.redirect_to(url)
+            return self.redirect_to(url)
+
+        except Exception as e:
+            logging.error("Error performing post on /g/game#: %s" % e)
