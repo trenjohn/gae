@@ -314,17 +314,18 @@ class GamePageHandler(BaseHandler):
 
     def post(self, url):
 
-        # url = self.request.url
-        # gameID = os.path.basename(os.path.normpath(url))
-        # gameID = int(gameID)
-        # game = Game()
-        # game = game.get_by_id(gameID)
-        #
-        # current = game.usersSignedUp
-        # new = current + 1
-        #
-        # game.usersSignedUp = new
-        #
-        # result = game.put()
+        url = self.request.url
+        gameID = os.path.basename(os.path.normpath(url))
+        gameID = int(gameID)
+        game = Game()
+        game = game.get_by_id(gameID)
 
-        return self.redirect(url)
+        current = game.usersSignedUp
+        new = current + 1
+        
+        game.usersSignedUp = new
+
+        result = game.put()
+
+        url = str(url)
+        return self.redirect_to(url)
