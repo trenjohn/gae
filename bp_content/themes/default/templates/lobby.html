@@ -1,0 +1,20 @@
+{% extends base_layout %}
+
+{% block header_title_lead %}{% endblock %}
+
+{% block content %}
+
+
+  <div>
+      <h1>
+          BitSpar Lobby
+      </h1>
+      {% for game in games %}
+        <div class="row">
+            <span><a href="https://trenjohn-170317.appspot.com/g/{{game.key.id()|safe}}">{{ game.key.id() }}</a><p> {{game.entryFee}} {{game.numberPlayers}}</p></span>
+            <p></p>
+        </div>
+      {% endfor %}
+  </div>
+
+{% endblock %}

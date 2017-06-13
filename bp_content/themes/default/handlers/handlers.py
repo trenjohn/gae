@@ -25,7 +25,7 @@ from bp_includes.lib.decorators import user_required
 from bp_includes.lib import captcha, utils
 import bp_includes.models as models_boilerplate
 import forms as forms
-
+from models import Game
 
 class ContactHandler(BaseHandler):
     """
@@ -280,3 +280,53 @@ class DeleteAccountHandler(BaseHandler):
     @webapp2.cached_property
     def form(self):
         return forms.DeleteAccountForm(self)
+
+
+class LobbyHandler(BaseHandler):
+
+    def get(self):
+
+        games = Game.query(Game.entryFee == 5)
+
+        params = {
+            'games': games,
+        }
+
+        return self.render_template('lobby.html', **params)
+
+
+class GamePageHandler(BaseHandler):
+
+    def get(self, url):
+
+        url = self.request.url
+        gameID = os.path.basename(os.path.normpath(url))
+        gameID = int(gameID)
+        game = Game()
+        game = game.get_by_id(gameID)
+
+        params = {
+            'game': game,
+        }
+
+        return self.render_template('game.html', **params)
+
+    def post(self, url):
+
+        url = self.request.url
+        gameID = os.path.basename(os.path.normpath(url))
+        gameID = int(gameID)
+        game = Game()
+        game = game.get_by_id(gameID)
+
+        #data = json.loads({'users': [{'1':'trenjohn'}]})
+
+        current = game.usersSignedUp
+        new = current + 1
+
+        game.usersSignedUp = new
+
+        result = game.put()
+
+        #query_params = {'game': gameID}
+        self.redirect(url)

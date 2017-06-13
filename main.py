@@ -40,7 +40,9 @@ import routes as routes_theme
 webapp2_config = config_boilerplate.config
 webapp2_config.update(config_theme.config)
 
-app = webapp2.WSGIApplication(debug=os.environ['SERVER_SOFTWARE'].startswith('Dev'), config=webapp2_config)
+app = webapp2.WSGIApplication(debug=True, config=webapp2_config)
+
+#os.environ['SERVER_SOFTWARE'].startswith('Dev') -- replace True with this above
 
 if not app.debug:
     for status_int in app.config['error_templates']:
