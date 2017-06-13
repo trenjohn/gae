@@ -327,7 +327,7 @@ class GamePageHandler(BaseHandler):
 
         game.usersSignedUp = new
 
-        result = game.put()
+        #result = game.put()
 
         #query_params = {'game': gameID}
         self.redirect(url)
