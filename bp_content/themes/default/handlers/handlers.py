@@ -327,4 +327,4 @@ class GamePageHandler(BaseHandler):
         #
         # result = game.put()
 
-        self.redirect(url)
+        return self.redirect(url)
