@@ -320,14 +320,9 @@ class GamePageHandler(BaseHandler):
         game = Game()
         game = game.get_by_id(gameID)
 
-        #data = json.loads({'users': [{'1':'trenjohn'}]})
-
         current = game.usersSignedUp
         new = current + 1
 
         game.usersSignedUp = new
 
-        #result = game.put()
-
-        #query_params = {'game': gameID}
         self.redirect(url)
