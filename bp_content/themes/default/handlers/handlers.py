@@ -335,10 +335,10 @@ class GamePageHandler(BaseHandler):
             else:
                 game.usersSignedUp = [{'user': self.user_id}]
 
-            result = game.put()
+            game.put()
 
             return self.redirect_to(url)
 
         else:
-            
+
             return self.redirect_to('lobby')

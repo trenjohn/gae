@@ -9,12 +9,20 @@
       <h1>
           BitSpar Lobby
       </h1>
+      <table style="width:80%">
+        <tr>
+          <th>Game #</th>
+          <th>Entry Fee</th>
+          <th>Signed Up / Number Players</th>
+        </tr>
       {% for game in games %}
-        <div class="row">
-            <span><a href="https://trenjohn-170317.appspot.com/g/{{game.key.id()|safe}}">{{ game.key.id() }}</a><p> {{game.entryFee}} {{game.numberPlayers}}</p></span>
-            <p></p>
-        </div>
+        <tr>
+          <td><a href="https://trenjohn-170317.appspot.com/g/{{game.key.id()|safe}}">{{ game.key.id() }}</a></td>
+          <td>{{game.entryFee}}</td>
+          <td>{{game.numberPlayers}} / {{game.usersSignedUpCount}}</td>
+        </tr>
       {% endfor %}
+      </table>
   </div>
 
 {% endblock %}
