@@ -7,7 +7,7 @@ class Game(ndb.Model):
     numberPlayers = ndb.IntegerProperty()
     entryFee = ndb.FloatProperty()
     usersSignedUp = ndb.JsonProperty()
-    usersSignedUpCount = ndb.ComputedProperty(self lambda: self.len(usersSignedUp))
+    usersSignedUpCount = ndb.ComputedProperty(lambda self: self.len(usersSignedUp))
     #PrizeStructure (Model w/ variety of types)
     #StartTime
     #Duration
