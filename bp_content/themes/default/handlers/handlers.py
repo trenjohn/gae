@@ -361,6 +361,8 @@ class UserGamePageHandler(BaseHandler):
 
     def get(self, game_id, user_id):
 
+        user = self.user
+
         params = {
             'user': user,
         }
