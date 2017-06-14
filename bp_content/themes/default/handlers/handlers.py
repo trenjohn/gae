@@ -313,7 +313,14 @@ class GamePageHandler(BaseHandler):
         return self.render_template('game.html', **params)
 
     def post(self, url):
-        try:
+
+        url = self.request.url
+        gameID = os.path.basename(os.path.normpath(url))
+        gameID = int(gameID)
+        game = Game()
+        game = game.get_by_id(gameID)
+
+        if not game.usersSignedUpCount == game.numberPlayers:
 
             url = self.request.url
             gameID = os.path.basename(os.path.normpath(url))
@@ -322,7 +329,7 @@ class GamePageHandler(BaseHandler):
             game = game.get_by_id(gameID)
 
             game.usersSignedUpCount = game.usersSignedUpCount + 1
-            
+
             if game.usersSignedUp:
                 game.usersSignedUp.append({'user': self.user_id})
             else:
@@ -332,5 +339,6 @@ class GamePageHandler(BaseHandler):
 
             return self.redirect_to(url)
 
-        except:
+        else:
+            
             return self.redirect_to('lobby')
