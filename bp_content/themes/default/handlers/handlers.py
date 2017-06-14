@@ -324,7 +324,7 @@ class GamePageHandler(BaseHandler):
             if game.usersSignedUpCount == game.numberPlayers:
                 break
             else:
-                game.usersSignedUpCount += 1
+                game.usersSignedUpCount = game.usersSignedUpCount + 1
                 if game.usersSignedUp:
                     game.usersSignedUp.append({'user': self.user_id})
                 else:
