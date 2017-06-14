@@ -359,7 +359,7 @@ class GameFullHandler(BaseHandler):
 
 class UserGamePageHandler(BaseHandler):
 
-    def get(self, **kwargs):
+    def get(self):
 
         # params = {
         #     'user': user,
