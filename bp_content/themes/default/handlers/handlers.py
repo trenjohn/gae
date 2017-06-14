@@ -335,6 +335,12 @@ class GamePageHandler(BaseHandler):
             else:
                 game.usersSignedUp = [{'user': self.user_id}]
 
+            user_info = self.user_model.get_by_id(long(self.user_id))
+            if user_info.userGames:
+                user_info.userGames.append({'game': gameID})
+            else:
+                user_info.userGames = [{'game': gameID}]
+
             game.put()
 
             url = str(url)
