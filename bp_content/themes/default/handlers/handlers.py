@@ -341,4 +341,11 @@ class GamePageHandler(BaseHandler):
 
         else:
 
-            return self.redirect_to('lobby')
+            return self.redirect_to('game-is-full')
+
+
+class GameFullHandler(BaseHandler):
+
+    def get(self):
+
+        return self.render_template('game-is-full.html')

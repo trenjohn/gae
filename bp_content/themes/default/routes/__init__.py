@@ -16,6 +16,7 @@ _routes = [
     RedirectRoute('/contact/', handlers.ContactHandler, name='contact', strict_slash=True),
     RedirectRoute('/lobby/', handlers.LobbyHandler, name='lobby', strict_slash=True),
     RedirectRoute('/g/<:.*>', handlers.GamePageHandler, name='game-page'),
+    RedirectRoute('/game-is-full', handlers.GameFullHandler, name='game-is-full'),
 ]
 
 def get_routes():
