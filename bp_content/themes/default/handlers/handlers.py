@@ -337,7 +337,7 @@ class GamePageHandler(BaseHandler):
 
             game.put()
 
-            return self.redirect(url)
+            return self.redirect(url+'/'+self.user_id)
 
         else:
 
@@ -349,3 +349,14 @@ class GameFullHandler(BaseHandler):
     def get(self):
 
         return self.render_template('game-is-full.html')
+
+
+class UserGamePageHandler(BaseHandler):
+
+    def get(self):
+
+        params = {
+            'user': user,
+        }
+
+        return self.render_template('user-game.html', **params)
