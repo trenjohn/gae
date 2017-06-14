@@ -28,4 +28,5 @@ class CreateGames(BaseHandler):
             gspot.numberPlayers = 1
             gspot.entryFee = 5.00
             gspot.usersSignedUp = 0
+            gspot.usersSignedUpCount = 0
             result = gspot.put()
