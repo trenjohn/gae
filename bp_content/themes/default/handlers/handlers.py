@@ -337,7 +337,11 @@ class GamePageHandler(BaseHandler):
 
             game.put()
 
-            redirect_url = str(url+'/'+self.user_id)
+            url = str(url)
+            userID = str(self.user_id)
+            redirect_url = url+'/'+userID
+
+            #redirect_url = str(url+'/'+self.user_id)
 
             return self.redirect(redirect_url)
 
@@ -355,7 +359,7 @@ class GameFullHandler(BaseHandler):
 
 class UserGamePageHandler(BaseHandler):
 
-    def get(self):
+    def get(self, **kwargs):
 
         # params = {
         #     'user': user,
