@@ -10,7 +10,7 @@
   </div>
   <div class="row">
       <span><a href="https://trenjohn-170317.appspot.com/g/{{ game.key.id()|safe }}">{{ game.key.id() }}</a>
-      <p> {{game.entryFee}} {{game.numberPlayers}} / {{game.usersSignedUp}}</p></span>
+      <p> {{game.entryFee}} {{game.numberPlayers}} / {{game.usersSignedUpCount}}</p></span>
   </div>
   <!-- [END greetings] -->
   <form action="{{ url|safe }}" method="post">
