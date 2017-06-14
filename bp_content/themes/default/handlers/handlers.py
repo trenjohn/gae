@@ -361,8 +361,8 @@ class UserGamePageHandler(BaseHandler):
 
     def get(self, game_id, user_id):
 
-        # params = {
-        #     'user': user,
-        # }
+        params = {
+            'user': user,
+        }
 
-        return self.render_template('user-game.html')
+        return self.render_template('user-game.html', **params)
