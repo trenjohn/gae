@@ -321,14 +321,18 @@ class GamePageHandler(BaseHandler):
             game = Game()
             game = game.get_by_id(gameID)
 
-            if game.usersSignedUp:
-                game.usersSignedUp.append({'user': self.user_id})
+            if game.usersSignedUpCount == game.numberPlayers:
+                break
             else:
-                game.usersSignedUp = [{'user': self.user_id}]
+                game.usersSignedUpCount += 1
+                if game.usersSignedUp:
+                    game.usersSignedUp.append({'user': self.user_id})
+                else:
+                    game.usersSignedUp = [{'user': self.user_id}]
 
             result = game.put()
 
             return self.redirect_to(url)
 
-        except Exception as e:
-            logging.error("Error performing post on /g/game#: %s" % e)
+        except:
+            return self.redirect_to('lobby')
